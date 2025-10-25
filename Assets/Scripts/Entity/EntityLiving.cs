@@ -1,4 +1,5 @@
 using System;
+using Item;
 
 namespace Entity
 {
@@ -9,14 +10,19 @@ namespace Entity
         protected bool invulnerable;
         protected bool dead;
         
-        #nullable enable
-        private string team;
+        protected string team;
+
+        protected GameItemDynamic primary;
+        protected GameItemBase secondary;
 
         public virtual void initialize(int health, int maxHealth)
         {
             this.health = health;
             this.maxHealth = maxHealth;
             this.team = null;
+            
+            this.primary = null;
+            this.secondary = null;
         }
     }
 }

@@ -57,11 +57,9 @@ namespace Input
             }
 
             Vector2 mouseVector = mouseMoveAction.ReadValue<Vector2>();
-            if (mouseVector.x != lastMousePosition.x && mouseVector.y != lastMousePosition.y)
-            {
-                EventManager.mouseMoveEvent.callEvent(mouseVector);
-                lastMousePosition = mouseVector;
-            }
+            EventManager.mouseMoveEvent.callEvent(mouseVector);
+            lastMousePosition = mouseVector;
+        
             
             
             float mouseState = mouseButtonAction.ReadValue<float>();
