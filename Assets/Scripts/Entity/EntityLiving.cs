@@ -9,20 +9,27 @@ namespace Entity
         protected int maxHealth;
         protected bool invulnerable;
         protected bool dead;
-        
-        protected string team;
+
+        protected Team team;
 
         protected GameItemDynamic primary;
         protected GameItemBase secondary;
 
-        public virtual void initialize(int health, int maxHealth)
+
+        protected void initialize(int health, int maxHealth, Team team)
         {
+            this.team = team;
+            invulnerable = false;
             this.health = health;
             this.maxHealth = maxHealth;
-            this.team = null;
-            
-            this.primary = null;
-            this.secondary = null;
+            dead = false;
         }
+
+
+        protected enum Team
+        {
+            PLAYER,
+            ENEMY
+        };
     }
 }

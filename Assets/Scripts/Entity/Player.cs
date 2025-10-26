@@ -31,10 +31,11 @@ namespace Entity
             _rigidbody = GetComponent<Rigidbody2D>();
             mainCamera = Camera.main;
             mouseWorldPosition = Vector2.zero;
-            
             setSecondaryItem(ItemFactory.createFlashlight(transform.position));
+         
+            initialize(1,1, Team.PLAYER);
         }
-
+        
 
         public void setPrimaryItem(GameItemDynamic item)
         {
@@ -66,11 +67,7 @@ namespace Entity
             secondary = item;
         }
 
-
-
-
-
-
+        
         public override void die()
         {
             stopControlling();
@@ -87,13 +84,13 @@ namespace Entity
             
             if (base.primary != null)
             {
-                base.primary.holdTick(diff, transformCoords, itemOffsetDist);
+                base.primary.holdTick(diff, itemOffsetDist);
             }
             
             
             if (base.secondary != null)
             {
-                base.secondary.holdTick(diff, transformCoords, itemOffsetDist);
+                base.secondary.holdTick(diff, itemOffsetDist);
             }
         }
 
@@ -126,7 +123,8 @@ namespace Entity
 
         public void leftMousePress(float mouseValue)
         {
-          //  CutsceneManager.instance.playSlide("cutscene-test1_0");
+   
+            
         }
 
         public void leftMouseRelease(float mouseValue)

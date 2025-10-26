@@ -20,7 +20,5 @@ namespace Item
             GameObject obj =  GameObject.Instantiate(FLASHLIGHT, new Vector3(position.x, position.y, 0), Quaternion.identity);
             return obj.GetComponent<Flashlight>();
         }
-
-
     }
 }

@@ -20,13 +20,13 @@ namespace Item.FunctionalItem
             flashlightBeam = transform.GetChild(1).GetComponent<Light2D>();
         }
 
-        public override void holdTick(Vector2 holdDirection, Vector2 entityTransform, float holdOffset)
+        public override void holdTick(Vector2 holdDirection, float holdOffset)
         {
-            proceduralTransformUpdate(holdDirection, entityTransform, holdOffset);
+            proceduralTransformUpdate(holdDirection, holdOffset);
         }
 
 
-        private void proceduralTransformUpdate(Vector2 holdDirection, Vector2 entityTransform, float holdOffset)
+        private void proceduralTransformUpdate(Vector2 holdDirection, float holdOffset)
         {
             Transform form = gameObject.transform;
             
@@ -37,7 +37,7 @@ namespace Item.FunctionalItem
             theta -= 90f;
             
             form.localRotation = Quaternion.Euler(0, 0, (float)theta);
-            Debug.Log(form.localRotation);
+        
         }
     }
 }
