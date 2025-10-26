@@ -10,13 +10,13 @@ namespace Entity
         protected bool invulnerable;
         protected bool dead;
 
-        protected Team team;
+        protected Team team { get; set;  } 
 
         protected GameItemDynamic primary;
         protected GameItemBase secondary;
 
 
-        protected void initialize(int health, int maxHealth, Team team)
+        public virtual void initialize(int health, int maxHealth, Team team)
         {
             this.team = team;
             invulnerable = false;
@@ -26,7 +26,26 @@ namespace Entity
         }
 
 
-        protected enum Team
+        public bool damage(EntityLiving entity, int damage = 1)
+        {
+            
+            if (invulnerable)
+                return false;
+            
+            if (entity.team == this.team)
+                return false;
+            
+            this.health -= damage;
+            if (health <= 0 || dead)
+                die();
+            
+            return true;
+
+        }
+
+
+
+        public enum Team
         {
             PLAYER,
             ENEMY

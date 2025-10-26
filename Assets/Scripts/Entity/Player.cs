@@ -36,6 +36,7 @@ namespace Entity
             mainCamera = Camera.main;
             mouseWorldPosition = Vector2.zero;
             setSecondaryItem(ItemFactory.createFlashlight(transform.position));
+            setPrimaryItem(ItemFactory.createPistol(transform.position));
          
             initialize(1,1, Team.PLAYER);
         }
@@ -127,7 +128,8 @@ namespace Entity
 
         public void leftMousePress(float mouseValue)
         {
-   
+            if (primary != null)
+                primary.use(this);
             
         }
 
