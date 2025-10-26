@@ -76,6 +76,9 @@ namespace Entity.Enemy
             }
             
             Vector2 diff = new Vector2(locationTarget.x - transform.position.x, locationTarget.y - transform.position.y);
+            
+            
+            
             diff.Normalize();
             
             diff *= moveSpeed;

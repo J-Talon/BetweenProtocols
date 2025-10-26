@@ -1,5 +1,6 @@
 
 using Entity;
+using Environment.Sound;
 using UnityEngine;
 
 namespace Item.FunctionalItem
@@ -37,9 +38,12 @@ namespace Item.FunctionalItem
 
             if (!canUse())
             {
-                Debug.Log("cooldown");
+            //    Debug.Log("cooldown");
                 return;
             }
+
+            bool res = SoundManager.instance.playSound("shot");
+            Debug.Log(res);
 
 
 

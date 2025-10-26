@@ -23,6 +23,7 @@ namespace Story.Cutscene
         private static Camera cam;
         private static Image image;
         private static GameObject darkness;
+        private static float fixedTime;
         
         
 
@@ -40,6 +41,7 @@ namespace Story.Cutscene
                 Destroy(gameObject);
                 return;
             }
+            fixedTime = Time.fixedDeltaTime;
             
             DontDestroyOnLoad(gameObject);
             
@@ -70,6 +72,7 @@ namespace Story.Cutscene
             image.sprite = sprite;
             activeSprite = sprite;
             EventManager.dialogStartEvent.callEvent(sprite.name);
+            Time.fixedDeltaTime = 0;
         }
         
         
@@ -96,6 +99,7 @@ namespace Story.Cutscene
             }
 
             EventManager.dialogStartEvent.callEvent(sprite.name);
+            Time.fixedDeltaTime = 0;
             
             float changeDiff =  (transitionSecs * 0.5f) / TRANSITION_SLICE;
             if (changeDiff <= 0)
@@ -172,6 +176,7 @@ namespace Story.Cutscene
             image.material.color = colour;
             activeSprite = null;
             EventManager.dialogEndEvent.callEvent(activeSprite == null ? "" : activeSprite.name);
+            Time.fixedDeltaTime = fixedTime;
         }
 
     }

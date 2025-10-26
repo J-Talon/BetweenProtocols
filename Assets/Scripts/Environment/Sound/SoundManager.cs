@@ -82,12 +82,14 @@ namespace Environment.Sound
             }
             else
             {
+                Debug.Log("try load: "+ PATH+"/"+name);
                 clip = Resources.Load<AudioClip>(PATH+"/"+name);
                 clips.Add(name, clip);
             }
 
             if (clip == null)
             {
+                Debug.Log("clip null");
                 return false;
             }
 
@@ -97,8 +99,13 @@ namespace Environment.Sound
         public bool playSound(AudioClip clip, int channel)
         {
             AudioSource source = getChannel(channel);
+            
             if (source == null)
+            {
+                Debug.Log("audio source null");
                 return false;
+            }
+
             source.clip = clip;
             
             source.Play();
