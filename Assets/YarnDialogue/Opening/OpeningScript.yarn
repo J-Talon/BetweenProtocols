@@ -1,0 +1,21 @@
+﻿title: OpeningScript
+---
+abcdef112 12345
+-> abc
+<<jump Opening>>
+===
+
+title: Opening
+---
+<<test>>
+Abcdef
+<<jump Opening2>>
+===
+
+title: Opening2
+---
+<<slide_change "Cutscenes/Placeholder/cutscene-test1">>
+def Abcdef
+===
+
+

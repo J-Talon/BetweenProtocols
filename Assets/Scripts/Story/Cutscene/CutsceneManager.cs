@@ -19,13 +19,13 @@ namespace Story.Cutscene
         
         public static CutsceneManager instance { get; private set; }
 
-        private Camera cam;
-        private Image image;
-        private GameObject darkness;
+        private static Camera cam;
+        private static Image image;
+        private static GameObject darkness;
         
         
 
-        private Sprite activeSprite = null;
+        private static Sprite activeSprite = null;
 
         public void Awake()
         {
@@ -39,9 +39,8 @@ namespace Story.Cutscene
                 Destroy(gameObject);
                 return;
             }
-
-            DontDestroyOnLoad(gameObject);
             
+            DontDestroyOnLoad(gameObject);
             
             cam = Camera.main;
             DontDestroyOnLoad(cam); 
@@ -55,7 +54,7 @@ namespace Story.Cutscene
         
         
         [YarnCommand("slide_change")]
-        public void playSlideFromResource(string filename)
+        public static void playSlideFromResource(string filename)
         {
             Color colour = image.material.color;
             colour.a = 1;
@@ -71,20 +70,23 @@ namespace Story.Cutscene
             activeSprite = sprite;
         }
         
-        
+
+
         [YarnCommand("slide_transition")]
-        public IEnumerator transitionSlide(string filename, float transitionSecs)
+        public static IEnumerator transitionSlide(string filename, float transitionSecs)
         {
             Color colour = image.material.color;
             float colourValue = 0;
             const float TRANSITION_SLICE = 0.05f;
             
             Sprite sprite = Resources.Load<Sprite>(filename);
+            
             if (sprite == null)
             {
                 Debug.Log("Cutscene Sprite not found: " + filename);
                 yield break;
             }
+
             
             float changeDiff =  (transitionSecs * 0.5f) / TRANSITION_SLICE;
             if (changeDiff <= 0)
@@ -154,7 +156,7 @@ namespace Story.Cutscene
         
         
         [YarnCommand("slide_clear")]
-        public void clear()
+        public static void clear()
         {
             Color colour = image.material.color;
             colour.a = 0;
