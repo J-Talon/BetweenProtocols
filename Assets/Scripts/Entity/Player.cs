@@ -1,4 +1,5 @@
 using System;
+using EventSystem;
 using Input;
 using Item;
 using Story.Cutscene;
@@ -7,7 +8,7 @@ using UnityEngine.Rendering.Universal;
 
 namespace Entity
 {
-    public class Player: EntityLiving, InputListener
+    public class Player: EntityLiving, InputListener, DialogListener
     {
 
         private Rigidbody2D _rigidbody;
@@ -28,6 +29,9 @@ namespace Entity
         private void Start()
         {
             startControlling();
+            
+            ((DialogListener)this).subscribe();
+            
             _rigidbody = GetComponent<Rigidbody2D>();
             mainCamera = Camera.main;
             mouseWorldPosition = Vector2.zero;
@@ -136,9 +140,23 @@ namespace Entity
         {
           
         }
+
         
         
-        
+
+        public void onDialogStart(string node)
+        {
+            stopControlling();
+            invulnerable = true;
+        }
+
+        public void onDialogEnd(string node)
+        {
+            startControlling();
+            invulnerable = false;
+        }
+
+
         public void stopControlling()
         {
             ((InputListener)this).unsubscribe();

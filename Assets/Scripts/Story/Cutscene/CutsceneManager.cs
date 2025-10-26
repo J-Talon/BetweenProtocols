@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using EventSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -68,13 +69,20 @@ namespace Story.Cutscene
             
             image.sprite = sprite;
             activeSprite = sprite;
+            EventManager.dialogStartEvent.callEvent(sprite.name);
         }
         
-
-
+        
+        
+        
+        
+        /*
+         * Do not use this for transitioning out of a cutscene. Use slideClear() instead
+         */
         [YarnCommand("slide_transition")]
         public static IEnumerator transitionSlide(string filename, float transitionSecs)
         {
+            
             Color colour = image.material.color;
             float colourValue = 0;
             const float TRANSITION_SLICE = 0.05f;
@@ -87,6 +95,7 @@ namespace Story.Cutscene
                 yield break;
             }
 
+            EventManager.dialogStartEvent.callEvent(sprite.name);
             
             float changeDiff =  (transitionSecs * 0.5f) / TRANSITION_SLICE;
             if (changeDiff <= 0)
@@ -162,6 +171,7 @@ namespace Story.Cutscene
             colour.a = 0;
             image.material.color = colour;
             activeSprite = null;
+            EventManager.dialogEndEvent.callEvent(activeSprite == null ? "" : activeSprite.name);
         }
 
     }

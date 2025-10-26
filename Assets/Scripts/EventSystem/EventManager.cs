@@ -10,5 +10,8 @@ namespace EventSystem
         public static EventDispatcher<float> mouseButtonDownEvent = new EventDispatcher<float>();
         public static EventDispatcher<float> mouseButtonUpEvent = new EventDispatcher<float>();
         public static EventDispatcher<float> mouseHoldDownEvent = new EventDispatcher<float>();
+        
+        public static EventDispatcher<string> dialogStartEvent = new EventDispatcher<string>();
+        public static EventDispatcher<string> dialogEndEvent = new EventDispatcher<string>();
     }
 }
