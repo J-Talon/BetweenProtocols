@@ -44,6 +44,11 @@ namespace Entity
         }
 
 
+        public Team getTeam() {
+            return team;
+        }
+
+
 
         public enum Team
         {

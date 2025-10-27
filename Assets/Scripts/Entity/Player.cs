@@ -111,7 +111,26 @@ namespace Entity
             _rigidbody.linearVelocity = moveDirection * MOVE_SPEED;
             
         }
-        
+
+
+        public void OnTriggerEnter(Collider other) {
+
+            GameObject obj = other.gameObject;
+            EntityLiving living = obj.GetComponent<EntityLiving>();
+
+            Debug.Log("te");
+
+            if (living == null)
+                return;
+
+            if (living.getTeam() == this.getTeam()) {
+                return;
+            }
+
+            this.damage(living);
+        }
+//
+//
         
         
 
