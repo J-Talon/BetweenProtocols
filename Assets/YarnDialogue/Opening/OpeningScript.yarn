@@ -2,7 +2,7 @@
 ---
 abcdef112 12345
 -> abc
-<<jump Opening>>
+<<next_scene "Scenes/Main">>
 ===
 
 title: Opening

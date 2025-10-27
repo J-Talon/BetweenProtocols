@@ -111,8 +111,13 @@ namespace Entity.Enemy
             GameObject obj = other.transform.gameObject;
             EntityLiving living = obj.GetComponent<EntityLiving>();
 
+            Debug.Log("te2");
+
+
             if (living == null)
                 return;
+
+            Debug.Log("damage - "+obj.name);
 
             living.damage(this);
         }

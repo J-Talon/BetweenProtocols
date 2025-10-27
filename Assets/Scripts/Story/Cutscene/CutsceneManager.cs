@@ -5,6 +5,7 @@ using System.IO;
 using EventSystem;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Yarn.Unity;
 
@@ -162,6 +163,12 @@ namespace Story.Cutscene
             }
 
             yield return null;
+        }
+
+
+        [YarnCommand("next_scene")]
+        public static void transitionScene(string name) {
+            SceneManager.LoadScene(name);
         }
         
         
