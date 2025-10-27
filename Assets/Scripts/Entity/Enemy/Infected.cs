@@ -27,6 +27,9 @@ namespace Entity.Enemy
         private float patrolTime;
         
         private Rigidbody2D rb;
+
+        Animator anim;
+        private int facingDirection = 1;
         
         public void Start()
         {
@@ -37,6 +40,7 @@ namespace Entity.Enemy
             
             initialize(3,3, Team.ENEMY);
             
+            anim = gameObject.GetComponent<Animator>();
         }
         
         
@@ -63,11 +67,13 @@ namespace Entity.Enemy
             {
                 moveSpeed = aggroMoveSpeed;
                 locationTarget = target.transform.position;
+                anim.SetBool("Enemy_Movin", true);
             }
             else
             {
                 patrolTime += delta;
                 moveSpeed = baseMoveSpeed;
+                anim.SetBool("Enemy_Movin", false);
             }
             
             if (!isAggro && patrolTime >= patrolSeconds)
