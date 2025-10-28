@@ -1,0 +1,12 @@
+﻿title: DialogueContinued
+---
+To be continued.
+<<jump temp>>
+===
+
+title: temp
+---
+Programmer's note: We had to scope down on some stuff for this iteration... we plan on getting it out next iteration.
+The game will now load the opening scene again for the next playtesters.
+<<next_scene "Opening">>
+===

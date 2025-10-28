@@ -1,13 +1,13 @@
 ﻿title: DeathTempDialogue
 ---
 You make your way into the base, but encounter strange entities which corner you...
-That is the last thing you remember before your vision goes dark.
 You don't see the light of day ever again.
-<<jump Retry>>
+
+Retry?
+-> Yes
+    <<next_scene "Opening">>
+-> No
+    <<quit_game>>
 ===
 
-title: Retry
----
-Retry
-<<next_scene "Opening">>
-===
+

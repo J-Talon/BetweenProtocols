@@ -168,6 +168,7 @@ namespace Story.Cutscene
 
         [YarnCommand("next_scene")]
         public static void transitionScene(string name) {
+            EventManager.sceneChangeEvent.callEvent(name);
             SceneManager.LoadScene(name);
         }
         
@@ -200,7 +201,13 @@ namespace Story.Cutscene
             EventManager.dialogEndEvent.callEvent(activeSprite == null ? "" : activeSprite.name);
         }
 
-
+        
+        //temporary until we fix the stuff
+        [YarnCommand("quit_game")]
+        public static void quit()
+        {
+            Application.Quit();
+        }
 
 
     }

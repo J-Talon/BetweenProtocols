@@ -41,3 +41,13 @@ The words are a bit too smudged to make out.
 <<end_dialogue_fixed>>
 ===
 
+
+title: FindDog1
+---
+<<start_dialogue_fixed>>
+There's a little dog in kennel. It squeals and yips excitedly as you approach it.
+It seems like you've found a companion, but your ordeal is not over.
+<<end_dialogue_fixed>>
+<<next_scene "SceneContinued">>
+===
+

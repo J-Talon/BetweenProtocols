@@ -35,6 +35,8 @@ namespace Entity
             
             ((DialogListener)this).subscribe();
             
+            EventManager.sceneChangeEvent.subscribe(sceneChange);
+            
             _rigidbody = GetComponent<Rigidbody2D>();
             mainCamera = Camera.main;
             mouseWorldPosition = Vector2.zero;
@@ -79,10 +81,17 @@ namespace Entity
         }
 
         
-        
-        
+        //messy...
+        public void sceneChange(string name)
+        {
+            die();
+        }
+
+
         public override void die()
         {
+            EventManager.sceneChangeEvent.unsubscribe(sceneChange);
+            ((DialogListener)this).unsubscribe();
             stopControlling();
             SceneManager.LoadScene("Scenes/ClosingDie");
         }
