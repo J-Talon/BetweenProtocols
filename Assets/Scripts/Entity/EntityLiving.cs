@@ -37,8 +37,11 @@ namespace Entity
             
             this.health -= damage;
             if (health <= 0 || dead)
+            {
+                dead = true;
                 die();
-            
+            }
+
             return true;
 
         }
