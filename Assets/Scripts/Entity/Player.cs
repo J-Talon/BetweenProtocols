@@ -25,7 +25,7 @@ namespace Entity
         [Header("Items")] 
         [SerializeField] public float itemOffsetDist = 0.5f;
 
-      //  Animator anim;
+        private Animator anim;
         private int facingDirection = 1;
         
         private void Start()
@@ -43,7 +43,7 @@ namespace Entity
             initialize(1,1, Team.PLAYER);
 
 
-         //   anim = gameObject.GetComponent<Animator>();
+            anim = gameObject.GetComponent<Animator>();
         }
         
 
@@ -116,11 +116,11 @@ namespace Entity
             
             if (magnitude == 0)
             {
-         //       anim.SetBool("Movin", false);
+                anim.SetBool("Movin", false);
             }
             else
             {
-        //        anim.SetBool("Movin", true);
+               anim.SetBool("Movin", true);
             }
         } 
 
@@ -190,8 +190,13 @@ namespace Entity
         public void leftMousePress(float mouseValue)
         {
             if (primary != null)
-                primary.use(this);
-            
+            {
+                anim.SetTrigger("TriggerShoot");
+                
+                if (primary.canUse())
+                    primary.use(this);
+            }
+
         }
 
         public void leftMouseRelease(float mouseValue)

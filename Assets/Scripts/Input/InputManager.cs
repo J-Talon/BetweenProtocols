@@ -66,7 +66,8 @@ namespace Input
             if (mouseState >= 1 && lastLeftMouseState < 1)
                 EventManager.mouseButtonDownEvent.callEvent(mouseState);
             else if (mouseState < 1 && lastLeftMouseState >= 1)
-                EventManager.mouseButtonDownEvent.callEvent(mouseState);
+                EventManager.mouseButtonUpEvent.callEvent(mouseState);
+            
 
             if (mouseState >= 1)
             {

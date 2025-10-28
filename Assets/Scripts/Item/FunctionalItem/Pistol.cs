@@ -1,4 +1,5 @@
 
+using System.Collections;
 using Entity;
 using Environment.Sound;
 using UnityEngine;
@@ -13,15 +14,15 @@ namespace Item.FunctionalItem
 
         [SerializeField] private float useCooldownMillis = 750f;
         [SerializeField] private float maxDist = 100f;
+        [SerializeField] private Material bulletDrawLine;
 
 
-        private bool canUse()
+        public override bool canUse()
         {
             float gameTimeMillis = Time.fixedTime * 1000f;
             float diff = gameTimeMillis -  lastFireTime;
             if (diff >= useCooldownMillis)
             {
-                lastFireTime = Time.fixedTime * 1000f;
                 return true;
             }
 
@@ -37,10 +38,10 @@ namespace Item.FunctionalItem
 
 
             if (!canUse())
-            {
-            //    Debug.Log("cooldown");
                 return;
-            }
+            
+            
+            lastFireTime = Time.fixedTime * 1000f;
 
             bool res = SoundManager.instance.playSound("shot");
             Debug.Log(res);
@@ -49,15 +50,14 @@ namespace Item.FunctionalItem
 
             EntityLiving living = null;
             RaycastHit2D[] hits = Physics2D.RaycastAll(source, direction, maxDist);
+            
             foreach (RaycastHit2D hit in hits)
             {
                 GameObject obj = hit.transform.gameObject;
                 living = obj.GetComponent<EntityLiving>();
-
-
+                
                 if (living == null)
                 {
-                    Debug.Log("hit: "+obj.name);
                     break;
                 }
 
@@ -71,9 +71,11 @@ namespace Item.FunctionalItem
                 return;
             
             bool damaged = living.damage(entity);
+            direction *= 2;
             if (damaged)
-                Debug.Log("damaged: "+living.name);
+                living.push(direction);
         }
+        
 
         public override void holdTick(Vector2 holdDirection, float holdOffset)
         {
