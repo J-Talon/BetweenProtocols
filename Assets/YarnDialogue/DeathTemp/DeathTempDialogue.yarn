@@ -1,4 +1,13 @@
 ﻿title: DeathTempDialogue
 ---
-This is an example of a Yarn Spinner script. Write your dialogue here!
+You make your way into the base, but encounter strange entities which corner you...
+That is the last thing you remember before your vision goes dark.
+You don't see the light of day ever again.
+<<jump Retry>>
+===
+
+title: Retry
+---
+Retry
+<<next_scene "Opening">>
 ===

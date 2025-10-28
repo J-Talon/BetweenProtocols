@@ -186,5 +186,22 @@ namespace Story.Cutscene
             Time.fixedDeltaTime = fixedTime;
         }
 
+
+        [YarnCommand("start_dialogue_fixed")]
+        public static void startFixedPosDialogue()
+        {
+            EventManager.dialogStartEvent.callEvent(activeSprite == null ? "" : activeSprite.name);
+        }
+
+
+        [YarnCommand("end_dialogue_fixed")]
+        public static void endFixedPosDialogue()
+        {
+            EventManager.dialogEndEvent.callEvent(activeSprite == null ? "" : activeSprite.name);
+        }
+
+
+
+
     }
 }

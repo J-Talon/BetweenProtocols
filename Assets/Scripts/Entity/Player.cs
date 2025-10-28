@@ -5,6 +5,7 @@ using Item;
 using Story.Cutscene;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 namespace Entity
 {
@@ -83,7 +84,7 @@ namespace Entity
         public override void die()
         {
             stopControlling();
-            //load a new scene here
+            SceneManager.LoadScene("Scenes/ClosingDie");
         }
         
         
@@ -215,6 +216,8 @@ namespace Entity
         public void onDialogStart(string node)
         {
             stopControlling();
+            moveDirection = Vector2.zero;
+            anim.SetBool("Movin", false);
             invulnerable = true;
         }
 

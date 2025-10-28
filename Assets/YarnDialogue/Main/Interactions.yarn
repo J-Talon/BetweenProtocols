@@ -1,0 +1,43 @@
+﻿
+title: Remarks
+---
+<<start_dialogue_fixed>>
+The entire base seems to be on low-power mode... almost as if it's abandoned...
+<<jump Remarks2>>
+===
+
+title: Remarks2
+---
+I'll need to find a radio station or a transmitter to call for help.
+<<end_dialogue_fixed>>
+===
+
+
+title: FindCorpse
+---
+<<start_dialogue_fixed>>
+Seems to be one of the former employees of this base.
+I don't think I want to touch whatever is growing out of it.
+I better keep my pistol at the ready.
+<<end_dialogue_fixed>>
+===
+
+
+title: FindPaperPiles1
+---
+<<start_dialogue_fixed>>
+There's a pile of papers on the ground. Inspect the papers?
+-> Yes
+    <<jump Atla1>>
+-> No
+    <<end_dialogue_fixed>>
+===
+
+
+title: Atla1
+---
+These seems to be documents detailing some mining operations from the Corporation Atla.
+The words are a bit too smudged to make out.
+<<end_dialogue_fixed>>
+===
+

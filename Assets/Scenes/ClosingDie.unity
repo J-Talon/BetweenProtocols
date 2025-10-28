@@ -199,6 +199,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue System
       objectReference: {fileID: 0}
+    - target: {fileID: 4306734659180801722, guid: 5624761368d870560871292dae258195, type: 3}
+      propertyPath: startNode
+      value: DeathTempDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306734659180801722, guid: 5624761368d870560871292dae258195, type: 3}
+      propertyPath: yarnProject
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 01a66d49d6f89c0d2875f3cd8583bb79, type: 3}
     - target: {fileID: 7033479881816414955, guid: 5624761368d870560871292dae258195, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
