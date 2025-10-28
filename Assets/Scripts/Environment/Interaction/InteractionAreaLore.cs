@@ -18,7 +18,7 @@ namespace Environment.Interaction
         }
 
 
-        public void OnTriggerEnter(Collider other)
+        public void OnTriggerEnter2D(Collider2D other)
         {
 
             GameObject obj = other.gameObject;

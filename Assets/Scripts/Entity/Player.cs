@@ -5,6 +5,7 @@ using Item;
 using Story.Cutscene;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 namespace Entity
 {
@@ -33,6 +34,8 @@ namespace Entity
             startControlling();
             
             ((DialogListener)this).subscribe();
+            
+            EventManager.sceneChangeEvent.subscribe(sceneChange);
             
             _rigidbody = GetComponent<Rigidbody2D>();
             mainCamera = Camera.main;
@@ -78,12 +81,19 @@ namespace Entity
         }
 
         
-        
-        
+        //messy...
+        public void sceneChange(string name)
+        {
+            die();
+        }
+
+
         public override void die()
         {
+            EventManager.sceneChangeEvent.unsubscribe(sceneChange);
+            ((DialogListener)this).unsubscribe();
             stopControlling();
-            //load a new scene here
+            SceneManager.LoadScene("Scenes/ClosingDie");
         }
         
         
@@ -215,6 +225,8 @@ namespace Entity
         public void onDialogStart(string node)
         {
             stopControlling();
+            moveDirection = Vector2.zero;
+            anim.SetBool("Movin", false);
             invulnerable = true;
         }
 

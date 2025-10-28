@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 076ca6016f08308b7a3089baad27a708
+  - enabled: 1
+    path: Assets/Scenes/ClosingDie.unity
+    guid: 517c7da7db6a2c504a00dbec5daddae4
+  - enabled: 1
+    path: Assets/Scenes/SceneContinued.unity
+    guid: 7de0dcaf14a34738cb2e64eeaef4a7b9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
