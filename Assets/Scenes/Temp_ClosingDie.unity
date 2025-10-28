@@ -197,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3197035588593903303, guid: 5624761368d870560871292dae258195, type: 3}
       propertyPath: m_Name
-      value: Dialogue System Variant
+      value: Dialogue System
       objectReference: {fileID: 0}
     - target: {fileID: 7033479881816414955, guid: 5624761368d870560871292dae258195, type: 3}
       propertyPath: m_SizeDelta.y

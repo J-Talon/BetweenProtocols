@@ -1,5 +1,6 @@
 using System;
 using Item;
+using UnityEngine;
 
 namespace Entity
 {
@@ -14,6 +15,8 @@ namespace Entity
 
         protected GameItemDynamic primary;
         protected GameItemBase secondary;
+        
+        protected Vector2 impulse;
 
 
         public virtual void initialize(int health, int maxHealth, Team team)
@@ -23,6 +26,7 @@ namespace Entity
             this.health = health;
             this.maxHealth = maxHealth;
             dead = false;
+            impulse = Vector2.zero;
         }
 
 
@@ -44,6 +48,11 @@ namespace Entity
 
             return true;
 
+        }
+        
+        public virtual void push(Vector2 vector)
+        {
+            
         }
 
 
