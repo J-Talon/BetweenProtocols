@@ -24,7 +24,9 @@ namespace Entity
 
         [Header("Items")] 
         [SerializeField] public float itemOffsetDist = 0.5f;
-        
+
+        Animator anim;
+        private int facingDirection = 1;
         
         private void Start()
         {
@@ -39,6 +41,9 @@ namespace Entity
             setPrimaryItem(ItemFactory.createPistol(transform.position));
          
             initialize(1,1, Team.PLAYER);
+
+
+            anim = gameObject.GetComponent<Animator>();
         }
         
 
@@ -99,17 +104,51 @@ namespace Entity
             }
         }
 
+        public void MovementUpdate(Vector2 move)
+        {
+            float magnitude = move.sqrMagnitude;
+            
+            if (magnitude == 0)
+            {
+                anim.SetBool("Movin", false);
+            }
+            else
+            {
+                anim.SetBool("Movin", true);
+            }
+        } 
 
-
+        private void directionUpdate()
+        {
+            float diff = mouseWorldPosition.x - transform.position.x;
+            
+            if (diff < 0 && facingDirection > 0)
+            {
+                facingDirection = -1;
+                Vector3 scale = transform.localScale;
+                scale.x *= -1;
+                transform.localScale = scale;
+            }
+            else if (diff > 0 && facingDirection < 0)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x *= -1;
+                transform.localScale = scale;
+                facingDirection = 1;
+            }
+        }
 
         public void FixedUpdate()
         {
             itemProceduralAnimation();
             mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z);
-            
+
             
             _rigidbody.linearVelocity = moveDirection * MOVE_SPEED;
-            
+
+            directionUpdate();
+
+
         }
 
 
@@ -138,11 +177,13 @@ namespace Entity
         public void keyMovementVectorUpdate(Vector2 vector)
         {
             moveDirection = vector;
+            MovementUpdate(vector);
         }
 
         public void mousePositionUpdate(Vector2 mousePosition)
         {
             mouseWorldPosition = mainCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 0));
+
         }
 
         public void leftMousePress(float mouseValue)
