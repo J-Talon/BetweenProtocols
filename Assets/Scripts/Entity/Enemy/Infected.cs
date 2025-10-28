@@ -28,7 +28,7 @@ namespace Entity.Enemy
         
         private Rigidbody2D rb;
 
-        Animator anim;
+       // Animator anim;
         private int facingDirection = 1;
         
         public void Start()
@@ -40,7 +40,7 @@ namespace Entity.Enemy
             
             initialize(3,3, Team.ENEMY);
             
-            anim = gameObject.GetComponent<Animator>();
+        //    anim = gameObject.GetComponent<Animator>();
         }
         
         
@@ -67,13 +67,13 @@ namespace Entity.Enemy
             {
                 moveSpeed = aggroMoveSpeed;
                 locationTarget = target.transform.position;
-                anim.SetBool("Enemy_Movin", true);
+            //    anim.SetBool("Enemy_Movin", true);
             }
             else
             {
                 patrolTime += delta;
                 moveSpeed = baseMoveSpeed;
-                anim.SetBool("Enemy_Movin", false);
+             //   anim.SetBool("Enemy_Movin", false);
             }
             
             if (!isAggro && patrolTime >= patrolSeconds)
@@ -112,7 +112,7 @@ namespace Entity.Enemy
             Gizmos.DrawWireSphere(pos, aggroDist);
         }
 
-        public void OnTriggerEnter(Collider other)
+        public void OnTriggerEnter2D(Collider2D other)
         {
             GameObject obj = other.transform.gameObject;
             EntityLiving living = obj.GetComponent<EntityLiving>();
@@ -122,10 +122,15 @@ namespace Entity.Enemy
 
             if (living == null)
                 return;
-
-            Debug.Log("damage - "+obj.name);
-
-            living.damage(this);
+            
+            attack(living);
         }
+
+
+        public void attack(EntityLiving other, int damage = 1)
+        {
+            other.damage(this, damage);
+        }
+
     }
 }

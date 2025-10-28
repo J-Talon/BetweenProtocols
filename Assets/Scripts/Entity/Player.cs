@@ -25,7 +25,7 @@ namespace Entity
         [Header("Items")] 
         [SerializeField] public float itemOffsetDist = 0.5f;
 
-        Animator anim;
+      //  Animator anim;
         private int facingDirection = 1;
         
         private void Start()
@@ -43,7 +43,7 @@ namespace Entity
             initialize(1,1, Team.PLAYER);
 
 
-            anim = gameObject.GetComponent<Animator>();
+         //   anim = gameObject.GetComponent<Animator>();
         }
         
 
@@ -78,10 +78,15 @@ namespace Entity
         }
 
         
+        
+        
         public override void die()
         {
             stopControlling();
+            //load a new scene here
         }
+        
+        
 
 
         private void itemProceduralAnimation()
@@ -90,6 +95,7 @@ namespace Entity
           Vector2 diff = mouseWorldPosition - transformCoords;
           
           diff.Normalize();
+          diff.x *= facingDirection;
             
             
             if (base.primary != null)
@@ -110,11 +116,11 @@ namespace Entity
             
             if (magnitude == 0)
             {
-                anim.SetBool("Movin", false);
+         //       anim.SetBool("Movin", false);
             }
             else
             {
-                anim.SetBool("Movin", true);
+        //        anim.SetBool("Movin", true);
             }
         } 
 
@@ -152,13 +158,11 @@ namespace Entity
         }
 
 
-        public void OnTriggerEnter(Collider other) {
+        public void OnTriggerEnter2D(Collider2D other) {
 
             GameObject obj = other.gameObject;
             EntityLiving living = obj.GetComponent<EntityLiving>();
-
-            Debug.Log("te");
-
+            
             if (living == null)
                 return;
 
@@ -168,11 +172,9 @@ namespace Entity
 
             this.damage(living);
         }
-//
-//
-        
-        
 
+
+     
 
         public void keyMovementVectorUpdate(Vector2 vector)
         {
@@ -183,7 +185,6 @@ namespace Entity
         public void mousePositionUpdate(Vector2 mousePosition)
         {
             mouseWorldPosition = mainCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 0));
-
         }
 
         public void leftMousePress(float mouseValue)
