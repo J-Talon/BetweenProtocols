@@ -1,20 +1,30 @@
 ﻿title: OpeningScript
 ---
-abcdef112 12345
--> abc
+It is the year 2190.
+Humanity has expanded into the stars, claiming celestial bodies for their vast Resource wealth.
+<<jump OpeningContext>>
+===
+
+title: OpeningContext
+---
+But with every advancement, there also comes risk.
+2 weeks ago, the lunar mining base on the moon X142-E went silent.
+No distress beacon, no transmissions.
+<<jump OpeningPlayerInfo>>
+===
+
+title: OpeningPlayerInfo
+---
+You are part of the crew onboard the ship Aurora, a search and rescue vessel tasked with investigating the lunar base.
+As you approach the moon, the accelerometers aboard fail, leading the ship to crash land.
+<<jump CrashInfo>>
+===
+
+title: CrashInfo
+---
+Crawling out of the wreck, you realize you are the sole survivor.
+Your only hope of getting off this moon now lies in that lunar base.
+Taking a flashlight and a pistol, you open the airlock and step inside.
 <<next_scene "Scenes/Main">>
 ===
-
-title: Opening
----
-Abcdef
-<<jump Opening2>>
-===
-
-title: Opening2
----
-<<slide_change "Cutscenes/Placeholder/cutscene-test1">>
-def Abcdef
-===
-
 

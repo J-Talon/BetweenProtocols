@@ -2,13 +2,13 @@
 title: Remarks
 ---
 <<start_dialogue_fixed>>
-The entire base seems to be on low-power mode... almost as if it's abandoned...
+The entire base seems to be on emergency power mode... there is nothing but silence, almost as if it's abandoned...
 <<jump Remarks2>>
 ===
 
 title: Remarks2
 ---
-I'll need to find a radio station or a transmitter to call for help.
+I'll need to find a radio station or a transmitter to call for support... or at least a shuttle to get off this rock.
 <<end_dialogue_fixed>>
 ===
 
@@ -16,8 +16,10 @@ I'll need to find a radio station or a transmitter to call for help.
 title: FindCorpse
 ---
 <<start_dialogue_fixed>>
-Seems to be one of the former employees of this base.
-I don't think I want to touch whatever is growing out of it.
+In the darkness is what appears to be a the remains of one of the miners.
+The body is in terrible condition.
+Dried blood cakes the uniform and... something alien seems to be growing out of it.
+This person... isn't human anymore.
 I better keep my pistol at the ready.
 <<end_dialogue_fixed>>
 ===
@@ -37,7 +39,8 @@ There's a pile of papers on the ground. Inspect the papers?
 title: Atla1
 ---
 These seems to be documents detailing some mining operations from the Corporation Atla.
-The words are a bit too smudged to make out.
+They seem to detail something about their excavation targets, but no mention of any sort of mineral deposits...
+Most of the words are a bit too smudged to make out.
 <<end_dialogue_fixed>>
 ===
 
@@ -46,7 +49,8 @@ title: FindDog1
 ---
 <<start_dialogue_fixed>>
 There's a little dog in kennel. It squeals and yips excitedly as you approach it.
-It seems like you've found a companion, but your ordeal is not over.
+The lone survivor in a base full of monsters...
+It seems like you've found a companion, but your ordeal is not yet over.
 <<end_dialogue_fixed>>
 <<next_scene "SceneContinued">>
 ===
