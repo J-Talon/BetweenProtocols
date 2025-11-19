@@ -32,6 +32,12 @@ namespace Entity
 
         public void FixedUpdate()
         {
+
+            if (player == null)
+                return;
+
+
+
             if (checkpoints.Count == 0)
                 return;
 
