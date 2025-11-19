@@ -11,6 +11,8 @@ namespace Entity
         private Player player;
         private List<Vector2> checkpoints;
         private Rigidbody2D rb;
+        private Animator anim;
+        private int dir;
         
         public void Start()
         {
@@ -20,9 +22,11 @@ namespace Entity
             player = FindObjectOfType<Player>(); //stupid
             checkpoints = new List<Vector2>();
             rb = GetComponent<Rigidbody2D>();
+            anim = GetComponent<Animator>();
             
             EventManager.keyboardMoveActionEvent.subscribe(onPlayerMove);
             EventManager.sceneChangeEvent.subscribe(onSceneChange);
+            dir = -1;
         }
 
 
@@ -30,20 +34,44 @@ namespace Entity
         {
             if (checkpoints.Count == 0)
                 return;
-            
+
+            //20^2
+            if (distSquared(gameObject.transform.position, player.transform.position) > 400)
+            {
+                checkpoints.Clear();
+                gameObject.transform.position = player.transform.position;
+            }
+
+
             Vector2 target = checkpoints[0];
             float dist = distSquared(target, gameObject.transform.position);
             if (dist < 1)
             {
+                anim.SetBool("running", false);
                 rb.linearVelocity = Vector2.zero;
                 checkpoints.RemoveAt(0);
                 return;
             }
             
+            anim.SetBool("running", true);
             Vector2 pos = gameObject.transform.position;
             Vector2 direction = new Vector2(target.x - pos.x, target.y - pos.y);
             direction.Normalize();
             direction *= 3;
+
+            Vector3 scale = transform.localScale;
+            if (direction.x < 0 && dir > 0)
+            {
+                scale.x *= -1;
+                dir = -1;
+            }
+            else if (direction.x > 0 && dir < 0)
+            {
+                scale.x *= -1;
+                dir = 1;
+            }
+            transform.localScale = scale;
+
             rb.linearVelocity = direction;
         }
 

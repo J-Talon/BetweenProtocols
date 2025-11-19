@@ -7,6 +7,8 @@ public class LogicGateController : MonoBehaviour
 {
     private List<Lever> levers = new List<Lever>();
     private bool spent = false;
+    
+    [SerializeField] private bool reusable = false;
     [SerializeField] private AbstractAction action;
     
     public void addLever(Lever lever)
@@ -30,7 +32,7 @@ public class LogicGateController : MonoBehaviour
 
     public void activate()
     {
-        if (spent)
+        if (spent && !reusable)
             return;
         
         spent = true;

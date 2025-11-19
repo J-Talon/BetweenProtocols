@@ -14,7 +14,10 @@ public class Lever : MonoBehaviour, Tagged
     [SerializeField] private Sprite onState = null;
     [SerializeField] private string promptString = "Interact (E)";
     [SerializeField] private bool reusable = false;
+    [SerializeField] private bool trigger = false;
 
+    
+    
     private SpriteRenderer spriteRenderer;
     
     
@@ -77,9 +80,12 @@ public class Lever : MonoBehaviour, Tagged
         
         if (!reusable)
             interactionPrompt.SetActive(false);
-        
-        
-        switchedOn = !switchedOn;
+
+        if (trigger)
+            switchedOn = true;
+        else
+            switchedOn = !switchedOn;
+
         controller.onLeverSwitched(this);
 
         if (spriteRenderer == null)
@@ -119,7 +125,8 @@ public class Lever : MonoBehaviour, Tagged
     
     public void playerInteractEvent(float i)
     {
-        interact();
+        if (inRange)
+            interact();
     }
 
 

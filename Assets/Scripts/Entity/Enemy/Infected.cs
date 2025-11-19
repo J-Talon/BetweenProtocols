@@ -8,7 +8,7 @@ namespace Entity.Enemy
     public class Infected: EntityLiving
     {
         [SerializeField] 
-        private GameObject target;  //temporary cause we're out of time
+        public GameObject target;  //temporary cause we're out of time
 
         [SerializeField] private float baseMoveSpeed = 1;
 
@@ -30,7 +30,7 @@ namespace Entity.Enemy
 
         private Animator anim;
         private int facingDirection = 1;
-        private bool isMad;
+        public bool isMad;
         
         
         public void Start()

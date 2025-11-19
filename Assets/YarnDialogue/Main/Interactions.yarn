@@ -45,13 +45,55 @@ Most of the words are a bit too smudged to make out.
 ===
 
 
+
+title: FindResearchNotes1
+---
+<<start_dialogue_fixed>>
+There's a pile of papers on the ground. Inspect them?
+-> Yes
+    <<jump Research1>>
+-> No
+    <<end_dialogue_fixed>>
+===
+
+title: Research1
+---
+“RA David Briar - Research Journal, Project DB - 02/2190”
+“Day 1: We have just completed our first day of research on Project DB. Initial trials appear promising.”
+“Day 12: We’ve just stabilized the virus. It now affects the infected’s respiratory system and skin cells.”
+“Day 19: Animal trials have commenced. Areas of focus include strengthening the effect on cognitive deterioration.”
+<<end_dialogue_fixed>>
+===
+
+
+
+title: FindResearchNotes2
+---
+<<start_dialogue_fixed>>
+There's a pile of papers on the ground. Inspect them?
+-> Yes
+    <<jump Research2>>
+-> No
+    <<end_dialogue_fixed>>
+===
+
+
+title: Research2
+---
+“Day 24: Doctor Nables has advised the council to speed up processes and shed some minor safety procedures in the interest of efficiency. No problems have arisen thus far.”
+“Day 31: Almost 30 days ahead of schedule, Doctor Nables has demanded that we begin human trials at once. Two members of the council have now resigned from the project, but are unable to leave until the next shuttle, scheduled to depart in over a month.”
+<<end_dialogue_fixed>>
+===
+
+
+
+
 title: FindDog1
 ---
 <<start_dialogue_fixed>>
 There's a little dog in kennel. It squeals and yips excitedly as you approach it.
 The lone survivor in a base full of monsters...
-It seems like you've found a companion, but your ordeal is not yet over.
+You read a tag on it's collar. It has the name Skits.
 <<end_dialogue_fixed>>
-<<next_scene "SceneContinued">>
 ===
 

@@ -5,7 +5,7 @@ namespace Environment.Puzzle.Action
 {
     public class ActionEncounter: AbstractAction
     {
-
+        
         private Player player;
 
         private void Start()
