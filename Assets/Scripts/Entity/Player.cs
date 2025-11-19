@@ -190,6 +190,7 @@ namespace Entity
         {
             moveDirection = vector;
             MovementUpdate(vector);
+            EventManager.playerMoveEvent.callEvent(vector);
         }
 
         public void mousePositionUpdate(Vector2 mousePosition)

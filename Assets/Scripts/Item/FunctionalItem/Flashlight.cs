@@ -1,14 +1,17 @@
 using System;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.Rendering.Universal;
+using Random = UnityEngine.Random;
 
 namespace Item.FunctionalItem
 {
     public class Flashlight: GameItemBase
     {
 
-        private float flickerChance = 0;
-        private float flickerTime = 0;
+        private float flickerChance = 0.3f;
+        private float flickerTime = 1;
+        private float lastCheck;
 
         private Light2D personalIllumination;
         private Light2D flashlightBeam;
@@ -18,6 +21,7 @@ namespace Item.FunctionalItem
         {
             personalIllumination = transform.GetChild(0).GetComponent<Light2D>();
             flashlightBeam = transform.GetChild(1).GetComponent<Light2D>();
+            lastCheck = 0;
         }
 
         public override void holdTick(Vector2 holdDirection, float holdOffset)

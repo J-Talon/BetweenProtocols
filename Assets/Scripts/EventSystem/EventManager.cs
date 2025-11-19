@@ -16,5 +16,6 @@ namespace EventSystem
 
         public static EventDispatcher<string> sceneChangeEvent = new EventDispatcher<string>();
         public static EventDispatcher<float> interactionEvent = new EventDispatcher<float>();
+        public static EventDispatcher<Vector2> playerMoveEvent = new EventDispatcher<Vector2>();
     }
 }
