@@ -16,7 +16,7 @@ namespace Entity
         private Light2D _personalLight;
         
         
-        private const float MOVE_SPEED = 5f;
+        private const float MOVE_SPEED = 3f;
         private Vector2 moveDirection = Vector2.zero;
 
         private Camera mainCamera;

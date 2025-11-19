@@ -9,7 +9,7 @@ namespace Startup
         static void OnGameStart()
         {  
             SceneManager.LoadScene("Scenes/ConstantLoad");
-            SceneManager.LoadScene("Opening");
+            SceneManager.LoadScene("Main");
         }
     }
 }

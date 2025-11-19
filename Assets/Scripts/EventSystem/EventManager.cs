@@ -15,5 +15,6 @@ namespace EventSystem
         public static EventDispatcher<string> dialogEndEvent = new EventDispatcher<string>();
 
         public static EventDispatcher<string> sceneChangeEvent = new EventDispatcher<string>();
+        public static EventDispatcher<float> interactionEvent = new EventDispatcher<float>();
     }
 }

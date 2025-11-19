@@ -1,8 +1,9 @@
+using Common;
 using UnityEngine;
 
 namespace Entity
 {
-    public abstract class GameEntity: MonoBehaviour
+    public abstract class GameEntity: MonoBehaviour, Tagged
     {
         protected string guid = null;
 
@@ -10,7 +11,7 @@ namespace Entity
         public string getID()
         {
             if (guid == null)
-                guid = System.Guid.NewGuid().ToString();
+                guid = ((Tagged)this).createId();
             return guid;
         }
 

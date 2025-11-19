@@ -14,7 +14,7 @@ namespace Input
         private InputAction keyboardMoveAction;
         private InputAction mouseMoveAction;
         private InputAction mouseButtonAction;
-        
+        private InputAction interactAction;
 
         private Vector2 lastKeyboardVector;
         private Vector2 lastMousePosition;
@@ -25,6 +25,7 @@ namespace Input
             keyboardMoveAction = controls.FindActionMap("Player").FindAction("Move");
             mouseMoveAction = controls.FindActionMap("Player").FindAction("Look");
             mouseButtonAction = controls.FindActionMap("Player").FindAction("Fire");
+            interactAction = controls.FindActionMap("Player").FindAction("Interact");
             
             DontDestroyOnLoad(gameObject);
             lastKeyboardVector = Vector2.zero;
@@ -48,6 +49,12 @@ namespace Input
         
         void Update()
         {
+            
+            float interactVector = interactAction.ReadValue<float>();
+            if (interactVector > 0)
+                EventManager.interactionEvent.callEvent(interactVector);
+            
+            
             Vector2 keyboardVector = keyboardMoveAction.ReadValue<Vector2>();
             
             if (lastKeyboardVector != keyboardVector)
