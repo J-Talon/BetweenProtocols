@@ -16,12 +16,28 @@ namespace Item.FunctionalItem
         private Light2D personalIllumination;
         private Light2D flashlightBeam;
 
+        private float personalIntensity;
+        private float beamIntensity;
+
+        public void setLight(float percent)
+        {
+            float percentBeam = beamIntensity * percent;
+            float percentPersonal = personalIntensity * percent;
+            
+            personalIllumination.intensity = percentPersonal;
+            beamIntensity = percentBeam;
+
+        }
+
 
         public void Awake()
         {
             personalIllumination = transform.GetChild(0).GetComponent<Light2D>();
             flashlightBeam = transform.GetChild(1).GetComponent<Light2D>();
             lastCheck = 0;
+            
+            beamIntensity = flashlightBeam.intensity;
+            personalIntensity = personalIllumination.intensity;
         }
 
         public override void holdTick(Vector2 holdDirection, float holdOffset)

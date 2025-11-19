@@ -92,8 +92,17 @@ title: FindDog1
 ---
 <<start_dialogue_fixed>>
 There's a little dog in kennel. It squeals and yips excitedly as you approach it.
-The lone survivor in a base full of monsters...
+The lone survivor in a base full of monsters... you open the kennel to let the dog out.
 You read a tag on it's collar. It has the name Skits.
 <<end_dialogue_fixed>>
 ===
+
+
+title: EndEncounter1
+---
+<<start_dialogue_fixed>>
+You successfully get a transmission out into space.
+<<next_scene "Scenes/SceneContinued">>
+===
+
 

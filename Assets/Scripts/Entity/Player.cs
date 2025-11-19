@@ -48,7 +48,17 @@ namespace Entity
 
             anim = gameObject.GetComponent<Animator>();
         }
-        
+
+
+        public GameItemDynamic getPrimaryItem()
+        {
+            return primary;
+        }
+
+        public GameItemBase getSecondaryItem()
+        {
+            return secondary;
+        }
 
         public void setPrimaryItem(GameItemDynamic item)
         {

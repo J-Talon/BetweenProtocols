@@ -42,9 +42,8 @@ namespace Item.FunctionalItem
             
             
             lastFireTime = Time.fixedTime * 1000f;
-
-            bool res = SoundManager.instance.playSound("shot");
-            Debug.Log(res);
+            
+            SoundManager.instance.playSound("shot");
 
 
 
@@ -67,6 +66,7 @@ namespace Item.FunctionalItem
                 break;
             }
 
+            Debug.Log(living);
             if (living == null)
                 return;
             

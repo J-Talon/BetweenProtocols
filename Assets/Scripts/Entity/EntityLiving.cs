@@ -1,4 +1,5 @@
 using System;
+using EventSystem;
 using Item;
 using UnityEngine;
 
@@ -43,6 +44,7 @@ namespace Entity
             if (health <= 0 || dead)
             {
                 dead = true;
+                EventManager.entityDeathEvent.callEvent(this);
                 die();
             }
 

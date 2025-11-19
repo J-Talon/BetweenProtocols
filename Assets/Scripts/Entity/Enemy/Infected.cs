@@ -10,11 +10,11 @@ namespace Entity.Enemy
         [SerializeField] 
         public GameObject target;  //temporary cause we're out of time
 
-        [SerializeField] private float baseMoveSpeed = 1;
+        [SerializeField] public float baseMoveSpeed = 1;
 
-        [SerializeField] private float aggroMoveSpeed = 5;
+        [SerializeField] public float aggroMoveSpeed = 5;
 
-        [SerializeField] private float aggroDist = 10f;
+        [SerializeField] public float aggroDist = 10f;
 
         [SerializeField] private float patrolRadius = 5f;
 
@@ -174,5 +174,10 @@ namespace Entity.Enemy
             isMad = true;
         }
 
+
+        public void setHealth(int health)
+        {
+            this.health = health;
+        }
     }
 }

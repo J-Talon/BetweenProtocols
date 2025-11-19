@@ -1,3 +1,4 @@
+using Entity;
 using UnityEngine;
 
 namespace EventSystem
@@ -17,5 +18,7 @@ namespace EventSystem
         public static EventDispatcher<string> sceneChangeEvent = new EventDispatcher<string>();
         public static EventDispatcher<float> interactionEvent = new EventDispatcher<float>();
         public static EventDispatcher<Vector2> playerMoveEvent = new EventDispatcher<Vector2>();
+
+        public static EventDispatcher<EntityLiving> entityDeathEvent = new EventDispatcher<EntityLiving>();
     }
 }
